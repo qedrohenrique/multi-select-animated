@@ -93,7 +93,7 @@ export default function Home() {
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
         npx create-multiselect-animated@latest
         <Separator orientation="vertical" />
-        <CopyIcon className="w-4 h-4" onClick={handleCopy} />
+        <CopyIcon className="w-4 h-4 cursor-pointer" onClick={handleCopy} />
       </span>
       <Button
         variant="outline"
