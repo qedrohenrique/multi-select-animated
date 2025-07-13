@@ -4,14 +4,28 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { CopyIcon, GithubIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { StatefullButon } from "@/components/statefull-buton";
+import { StatefullButon } from "@/components/custom/statefull-buton";
+import { useState } from "react";
 
-export default function Home() {
+export default function StatefullButonPage() {
+  const [buttonState, setButtonState] =
+    useState<React.ComponentProps<typeof StatefullButon>["phase"]>("idle");
+
   const handleCopy = () => {
     navigator.clipboard.writeText(
       "npx shadcn@latest add multi-select-animated"
     );
     toast.success("Copied to clipboard");
+  };
+
+  const handleClick = () => {
+    setButtonState("loading");
+    setTimeout(() => {
+      setButtonState("success");
+    }, 1000);
+    setTimeout(() => {
+      setButtonState("idle");
+    }, 2000);
   };
 
   return (
@@ -21,7 +35,9 @@ export default function Home() {
           <h1 className="text-2xl font-bold">Statefull Button</h1>
           <p className="text-sm text-muted-foreground">built with shadcn/ui</p>
         </div>
-        <StatefullButon>Click me</StatefullButon>
+        <StatefullButon phase={buttonState} onClick={handleClick}>
+          Click me
+        </StatefullButon>
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
         npx create-statefull-button@latest

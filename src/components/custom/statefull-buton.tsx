@@ -10,6 +10,7 @@ export interface StatefullButonProps
   children: React.ReactNode;
   loadingDuration?: number;
   successDuration?: number;
+  phase?: "idle" | "contracting" | "loading" | "success";
 }
 
 export function StatefullButon({
@@ -17,39 +18,57 @@ export function StatefullButon({
   loadingDuration = 1500,
   successDuration = 1000,
   onClick,
+  phase: controlledPhase,
   ...props
 }: StatefullButonProps) {
-  const [phase, setPhase] = useState<
+  const [internalPhase, setInternalPhase] = useState<
     "idle" | "contracting" | "loading" | "success"
   >("idle");
 
+  const isControlled = controlledPhase !== undefined;
+  const currentPhase = (isControlled ? controlledPhase : internalPhase) as
+    | "idle"
+    | "contracting"
+    | "loading"
+    | "success";
+
   useEffect(() => {
+    if (isControlled) return;
+
     let loadingTimeout: ReturnType<typeof setTimeout> | undefined;
     let successTimeout: ReturnType<typeof setTimeout> | undefined;
 
-    if (phase === "loading") {
-      loadingTimeout = setTimeout(() => setPhase("success"), loadingDuration);
+    if (internalPhase === "loading") {
+      loadingTimeout = setTimeout(
+        () => setInternalPhase("success"),
+        loadingDuration
+      );
     }
 
-    if (phase === "success") {
-      successTimeout = setTimeout(() => setPhase("idle"), successDuration);
+    if (internalPhase === "success") {
+      successTimeout = setTimeout(
+        () => setInternalPhase("idle"),
+        successDuration
+      );
     }
 
     return () => {
       if (loadingTimeout) clearTimeout(loadingTimeout);
       if (successTimeout) clearTimeout(successTimeout);
     };
-  }, [phase, loadingDuration, successDuration]);
+  }, [internalPhase, loadingDuration, successDuration, isControlled]);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    if (phase !== "idle") return;
+    if (currentPhase !== "idle") return;
     onClick?.(e);
-    setPhase("contracting");
+    if (!isControlled) {
+      setInternalPhase("contracting");
+    }
   };
 
   const handleTextAnimationComplete = () => {
-    if (phase === "contracting") {
-      setPhase("loading");
+    if (!isControlled && currentPhase === "contracting") {
+      setInternalPhase("loading");
     }
   };
 
@@ -82,12 +101,12 @@ export function StatefullButon({
     >
       <span className="inline-flex items-center justify-center">
         <AnimatePresence mode="wait" initial={false}>
-          {(phase === "idle" || phase === "contracting") && (
+          {(currentPhase === "idle" || currentPhase === "contracting") && (
             <motion.span
               key="text"
               variants={scaleVariants}
-              initial="expand"
-              animate={phase === "idle" ? "expand" : "collapse"}
+              initial="collapse"
+              animate={currentPhase === "idle" ? "expand" : "collapse"}
               exit="collapse"
               style={{ display: "inline-block", transformOrigin: "center" }}
               onAnimationComplete={handleTextAnimationComplete}
@@ -96,7 +115,7 @@ export function StatefullButon({
             </motion.span>
           )}
 
-          {phase === "loading" && (
+          {currentPhase === "loading" && (
             <motion.span
               key="loader"
               variants={scaleVariants}
@@ -109,7 +128,7 @@ export function StatefullButon({
             </motion.span>
           )}
 
-          {phase === "success" && (
+          {currentPhase === "success" && (
             <motion.span
               key="success"
               variants={scaleVariants}
