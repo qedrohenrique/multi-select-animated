@@ -1,6 +1,6 @@
 {
   "name": "@qedrohenrique/create-statefull-button",
-  "version": "1.0.0",
+  "version": "2.0.2",
   "bin": {
     "create-statefull-button": "bin/cli.js"
   },

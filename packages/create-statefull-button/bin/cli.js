@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name("create-statefull-button")
   .description(
-    "Install the StatefullButon component in your React/Next.js project"
+    "Install the StatefullButton component in your React/Next.js project"
   )
   .option("-p, --path <dir>", "project path", ".")
   .parse(process.argv);
@@ -29,9 +29,19 @@ let pm = "npm";
 if (hasPnpm) pm = "pnpm";
 else if (hasYarn) pm = "yarn";
 
-const deps = ["class-variance-authority", "clsx", "tailwind-merge"];
+const deps = [
+  "@radix-ui/react-popover",
+  "@radix-ui/react-separator",
+  "@radix-ui/react-slot",
+  "class-variance-authority",
+  "clsx",
+  "lucide-react",
+  "motion",
+  "tailwind-merge",
+];
 
 console.log(chalk.cyan(`📦  Installing dependencies using ${pm}...`));
+
 try {
   if (pm === "npm") {
     execSync(`npm install ${deps.join(" ")}`, {
@@ -54,4 +64,6 @@ try {
   process.exit(1);
 }
 
-console.log(chalk.bold.green("\n✅  StatefullButon installed successfully!"));
+console.log(
+  chalk.bold.green("\n✅  StatefullButton installed successfully!")
+);

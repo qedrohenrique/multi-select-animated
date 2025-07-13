@@ -2,7 +2,6 @@
 
 ## Download
 
-
 ```bash
 npx @qedrohenrique/create-multiselect-animated@latest
 ```
