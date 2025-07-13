@@ -10,18 +10,18 @@ const program = new Command();
 program
   .name("create-multiselect-animated")
   .description(
-    "Instala o componente MultiSelectAnimated no seu projeto React/Next.js"
+    "Installs the MultiSelectAnimated component in your React/Next.js project"
   )
-  .option("-p, --path <dir>", "caminho do projeto", ".")
+  .option("-p, --path <dir>", "project path", ".")
   .parse(process.argv);
 
 const opts = program.opts();
 const projectDir = path.resolve(process.cwd(), opts.path);
 const templateDir = path.resolve(__dirname, "../template");
 
-console.log(chalk.cyan("\uD83D\uDCC2  Copiando arquivos do componente..."));
+console.log(chalk.cyan("\uD83D\uDCC2  Copying component files..."));
 fs.copySync(templateDir, projectDir, { overwrite: false, errorOnExist: false });
-console.log(chalk.green("✔  Arquivos copiados"));
+console.log(chalk.green("✔  Files copied"));
 
 const hasYarn = fs.existsSync(path.join(projectDir, "yarn.lock"));
 const hasPnpm = fs.existsSync(path.join(projectDir, "pnpm-lock.yaml"));
@@ -40,9 +40,7 @@ const deps = [
   "tailwind-merge",
 ];
 
-console.log(
-  chalk.cyan(`\uD83D\uDCE6  Instalando dependências usando ${pm}...`)
-);
+console.log(chalk.cyan(`\uD83D\uDCE6  Installing dependencies using ${pm}...`));
 try {
   if (pm === "npm") {
     execSync(`npm install ${deps.join(" ")}`, {
@@ -61,10 +59,10 @@ try {
     });
   }
 } catch (err) {
-  console.error(chalk.red("Erro ao instalar dependências."));
+  console.error(chalk.red("Error installing dependencies."));
   process.exit(1);
 }
 
 console.log(
-  chalk.bold.green("\n✅  MultiSelectAnimated instalado com sucesso!")
+  chalk.bold.green("\n✅  MultiSelectAnimated installed successfully!")
 );

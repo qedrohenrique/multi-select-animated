@@ -1,6 +1,6 @@
 {
   "name": "create-multiselect-animated",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "bin": {
     "create-multiselect-animated": "./bin/cli.js"
