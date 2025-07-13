@@ -78,9 +78,10 @@ export default function MultiSelectAnimated({
       <div>
         <Popover>
           <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              className={`min-h-[40px] h-auto px-4 gap-2 text-muted-foreground ${triggerClassName}`}
+            <div
+              className={`min-h-[40px] h-auto px-4 gap-2 text-muted-foreground rounded-md py-2 hover:cursor-pointer
+                border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50
+                 ${triggerClassName}`}
             >
               <AnimatePresence mode="wait">
                 {selectedItems.length === 0 ? (
@@ -187,7 +188,7 @@ export default function MultiSelectAnimated({
                   </div>
                 )}
               </AnimatePresence>
-            </Button>
+            </div>
           </PopoverTrigger>
           <PopoverContent className="w-80 p-0">
             {options.length > 0 ? (
