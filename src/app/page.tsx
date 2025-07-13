@@ -99,7 +99,7 @@ export default function Home() {
         variant="outline"
         onClick={() =>
           window.open(
-            "https://github.com/lucas-santos-dev/multi-select-animated",
+            "https://github.com/qedrohenrique/multi-select-animated",
             "_blank"
           )
         }
