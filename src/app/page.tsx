@@ -53,7 +53,9 @@ export default function Home() {
     useState<ContentItem[]>(contentLorem);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("npx shadcn@latest add multi-select-animated");
+    navigator.clipboard.writeText(
+      "npx shadcn@latest add multi-select-animated"
+    );
     toast.success("Copied to clipboard");
   };
 
@@ -89,13 +91,18 @@ export default function Home() {
         </Button>
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
-        npx shadcn@latest add multi-select-animated
-        <Separator orientation="vertical"/>
+        npx create-multiselect-animated@latest
+        <Separator orientation="vertical" />
         <CopyIcon className="w-4 h-4" onClick={handleCopy} />
       </span>
       <Button
         variant="outline"
-        onClick={() => window.open("https://github.com/lucas-santos-dev/multi-select-animated", "_blank")}
+        onClick={() =>
+          window.open(
+            "https://github.com/lucas-santos-dev/multi-select-animated",
+            "_blank"
+          )
+        }
       >
         <GithubIcon />
         GitHub

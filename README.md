@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MultiSelect Animated
 
-## Getting Started
+A shadcn-style installer that drops a fully-styled, animated multi-select component (built with Radix UI, Tailwind CSS, lucide-react and motion) straight into your React / Next.js project.
 
-First, run the development server:
+---
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# add the component to the current folder (default)
+npx create-multiselect-animated@latest
+
+# target a different folder
+npx create-multiselect-animated@latest --path ./apps/web
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. The script copies the following files into **`<project>/src/`**.
+   ```
+   src/
+     components/
+       multi-select-animated.tsx
+       ui/
+         button.tsx
+         input.tsx
+         popover.tsx
+         separator.tsx
+     lib/
+       utils.ts
+   ```
+2. It detects your package manager (`npm`, `yarn`, `pnpm`) and installs all required dependencies:
+   ```
+   @radix-ui/react-popover @radix-ui/react-separator @radix-ui/react-slot
+   class-variance-authority clsx lucide-react motion tailwind-merge
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can use it as:
 
-## Learn More
+```tsx
+import MultiSelectAnimated from "@/components/multi-select-animated";
 
-To learn more about Next.js, take a look at the following resources:
+export default function Example() {
+  return (
+    <MultiSelectAnimated
+      options={[
+        { id: 1, content: "JavaScript" },
+        { id: 2, content: "Go" },
+      ]}
+      placeholder="Select technologies"
+    />
+  );
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Clone this repo and open a Pull Request:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git clone https://github.com/your-user/multiselect-animated.git
+cd multiselect-animated
+npm install
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
