@@ -2,7 +2,7 @@
   "name": "create-multi-select-animated",
   "version": "1.0.4",
   "bin": {
-    "create-multi-select-animated": "./bin/cli.js"
+    "create-multi-select-animated": "bin/cli.js"
   },
   "files": [
     "bin",

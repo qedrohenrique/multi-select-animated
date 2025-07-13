@@ -2,7 +2,7 @@
   "name": "create-statefull-button",
   "version": "1.0.0",
   "bin": {
-    "create-statefull-button": "./bin/cli.js"
+    "create-statefull-button": "bin/cli.js"
   },
   "files": [
     "bin",
