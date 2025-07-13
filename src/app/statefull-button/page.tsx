@@ -48,7 +48,7 @@ export default function StatefullButonPage() {
         variant="outline"
         onClick={() =>
           window.open(
-            "https://github.com/qedrohenrique/statefull-button",
+            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/statefull-buton.tsx",
             "_blank"
           )
         }

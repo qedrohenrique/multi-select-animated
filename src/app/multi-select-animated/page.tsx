@@ -99,7 +99,7 @@ export default function MultiSelectAnimatedPage() {
         variant="outline"
         onClick={() =>
           window.open(
-            "https://github.com/qedrohenrique/multi-select-animated",
+            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/multi-select-animated.tsx",
             "_blank"
           )
         }
