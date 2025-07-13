@@ -1,12 +1,12 @@
 "use client";
 
 import { ChevronDown, Search, X } from "lucide-react";
-import { Button } from "./ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { Input } from "./ui/input";
+import { Button } from "../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Input } from "../ui/input";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
-import { Separator } from "./ui/separator";
+import { Separator } from "../ui/separator";
 
 export interface ContentItem {
   id: number;

@@ -1,14 +1,9 @@
 {
-  "name": "create-multiselect-animated",
+  "name": "ui-components-monorepo",
   "version": "1.0.3",
-  "private": false,
-  "bin": {
-    "create-multiselect-animated": "./bin/cli.js"
-  },
-  "files": [
-    "bin",
-    "template",
-    "README.md"
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
     "dev": "next dev --turbopack",
