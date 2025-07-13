@@ -8,9 +8,9 @@ const chalk = require("chalk");
 
 const program = new Command();
 program
-  .name("create-multiselect-animated")
+  .name("create-statefull-button")
   .description(
-    "Installs the MultiSelectAnimated component in your React/Next.js project"
+    "Install the StatefullButon component in your React/Next.js project"
   )
   .option("-p, --path <dir>", "project path", ".")
   .parse(process.argv);
@@ -19,7 +19,7 @@ const opts = program.opts();
 const projectDir = path.resolve(process.cwd(), opts.path);
 const templateDir = path.resolve(__dirname, "../template");
 
-console.log(chalk.cyan("\uD83D\uDCC2  Copying component files..."));
+console.log(chalk.cyan("📂  Copying component files..."));
 fs.copySync(templateDir, projectDir, { overwrite: false, errorOnExist: false });
 console.log(chalk.green("✔  Files copied"));
 
@@ -29,18 +29,9 @@ let pm = "npm";
 if (hasPnpm) pm = "pnpm";
 else if (hasYarn) pm = "yarn";
 
-const deps = [
-  "@radix-ui/react-popover",
-  "@radix-ui/react-separator",
-  "@radix-ui/react-slot",
-  "class-variance-authority",
-  "clsx",
-  "lucide-react",
-  "motion",
-  "tailwind-merge",
-];
+const deps = ["class-variance-authority", "clsx", "tailwind-merge"];
 
-console.log(chalk.cyan(`\uD83D\uDCE6  Installing dependencies using ${pm}...`));
+console.log(chalk.cyan(`📦  Installing dependencies using ${pm}...`));
 try {
   if (pm === "npm") {
     execSync(`npm install ${deps.join(" ")}`, {
@@ -63,6 +54,4 @@ try {
   process.exit(1);
 }
 
-console.log(
-  chalk.bold.green("\n✅  MultiSelectAnimated installed successfully!")
-);
+console.log(chalk.bold.green("\n✅  StatefullButon installed successfully!"));

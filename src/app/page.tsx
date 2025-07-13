@@ -49,9 +49,6 @@ const contentLorem: ContentItem[] = [
 ];
 
 export default function Home() {
-  const [selectedItems, setSelectedItems] =
-    useState<ContentItem[]>(contentLorem);
-
   const handleCopy = () => {
     navigator.clipboard.writeText(
       "npx shadcn@latest add multi-select-animated"
@@ -66,29 +63,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold">Multi Select Animated</h1>
           <p className="text-sm text-muted-foreground">built with shadcn/ui</p>
         </div>
-        <MultiselectAnimated
-          options={contentLorem}
-          initialSelectedItems={selectedItems}
-          placeholder="Select options"
-          onSelect={(item) => {
-            setSelectedItems([...selectedItems, item]);
-          }}
-          onDeselect={(item) => {
-            setSelectedItems(selectedItems.filter((i) => i.id !== item.id));
-          }}
-          triggerClassName="w-full max-w-80"
-        />
-        <Button
-          onClick={() =>
-            toast.success(
-              `Submitted items: ${selectedItems
-                .map((i) => i.content)
-                .join(", ")}`
-            )
-          }
-        >
-          Submit
-        </Button>
+
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
         npx create-multiselect-animated@latest
