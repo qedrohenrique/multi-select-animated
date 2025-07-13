@@ -1,8 +1,6 @@
 # MultiSelect Animated
 
-A shadcn-style installer that drops a fully-styled, animated multi-select component (built with Radix UI, Tailwind CSS, lucide-react and motion) straight into your React / Next.js project.
-
----
+A shadcn-style installer that drops a fully-styled, animated multi-select component.
 
 ## Quick start
 
@@ -51,8 +49,6 @@ export default function Example() {
   );
 }
 ```
-
----
 
 ## Contributing
 
