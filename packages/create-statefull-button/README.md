@@ -3,7 +3,7 @@
 ## Download
 
 ```bash
-npx create-statefull-button@latest
+npx @qedrohenrique/create-statefull-button@latest
 ```
 
 ## Example

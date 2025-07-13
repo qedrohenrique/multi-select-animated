@@ -4,7 +4,7 @@
 
 
 ```bash
-npx create-multiselect-animated@latest
+npx @qedrohenrique/create-multiselect-animated@latest
 ```
 
 ## Example

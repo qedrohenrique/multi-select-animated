@@ -13,7 +13,7 @@ export default function StatefullButonPage() {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
-      "npx shadcn@latest add multi-select-animated"
+      "npx @qedrohenrique/create-statefull-button@latest"
     );
     toast.success("Copied to clipboard");
   };
@@ -40,7 +40,7 @@ export default function StatefullButonPage() {
         </StatefullButon>
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
-        npx create-statefull-button@latest
+        npx @qedrohenrique/create-statefull-button@latest
         <Separator orientation="vertical" />
         <CopyIcon className="w-4 h-4 cursor-pointer" onClick={handleCopy} />
       </span>
