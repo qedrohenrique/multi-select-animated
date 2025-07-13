@@ -61,3 +61,4 @@ npm install
 npm run dev
 ```
 
+Pedro Henrique de Almeida © 2025 - All rights reserved
