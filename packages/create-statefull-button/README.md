@@ -12,11 +12,11 @@ npx @qedrohenrique/create-statefull-button@latest
 "use client";
 
 import { useState } from "react";
-import { StatefullButon } from "@/components/custom/statefull-buton";
+import { StatefullButton } from "@/components/custom/statefull-button";
 
 export default function MyPageComponent() {
   const [buttonState, setButtonState] =
-    useState<React.ComponentProps<typeof StatefullButon>["phase"]>("idle");
+    useState<React.ComponentProps<typeof StatefullButton>["phase"]>("idle");
 
   const handleClick = () => {
     setButtonState("loading");
@@ -29,9 +29,9 @@ export default function MyPageComponent() {
   };
 
   return (
-    <StatefullButon phase={buttonState} onClick={handleClick}>
+    <StatefullButton phase={buttonState} onClick={handleClick}>
       Click me
-    </StatefullButon>
+    </StatefullButton>
   );
 }
 ```

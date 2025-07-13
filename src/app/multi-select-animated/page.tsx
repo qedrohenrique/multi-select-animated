@@ -54,7 +54,7 @@ export default function MultiSelectAnimatedPage() {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
-      "npx @qedrohenrique/create-multiselect-animated@latest"
+      "npx @qedrohenrique/create-multi-select-animated@latest"
     );
     toast.success("Copied to clipboard");
   };

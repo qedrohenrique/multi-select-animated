@@ -3,7 +3,7 @@
 ## Download
 
 ```bash
-npx @qedrohenrique/create-multiselect-animated@latest
+npx @qedrohenrique/create-multi-select-animated@latest
 ```
 
 ## Example

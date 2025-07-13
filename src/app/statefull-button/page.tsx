@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { CopyIcon, GithubIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { StatefullButon } from "@/components/custom/statefull-buton";
+import { StatefullButton } from "@/components/custom/statefull-button";
 import { useState } from "react";
 
-export default function StatefullButonPage() {
+export default function StatefullButtonPage() {
   const [buttonState, setButtonState] =
-    useState<React.ComponentProps<typeof StatefullButon>["phase"]>("idle");
+    useState<React.ComponentProps<typeof StatefullButton>["phase"]>("idle");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(
@@ -35,9 +35,9 @@ export default function StatefullButonPage() {
           <h1 className="text-2xl font-bold">Statefull Button</h1>
           <p className="text-sm text-muted-foreground">built with shadcn/ui</p>
         </div>
-        <StatefullButon phase={buttonState} onClick={handleClick}>
+        <StatefullButton phase={buttonState} onClick={handleClick}>
           Click me
-        </StatefullButon>
+        </StatefullButton>
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
         npx @qedrohenrique/create-statefull-button@latest
@@ -48,7 +48,7 @@ export default function StatefullButonPage() {
         variant="outline"
         onClick={() =>
           window.open(
-            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/statefull-buton.tsx",
+            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/statefull-button.tsx",
             "_blank"
           )
         }

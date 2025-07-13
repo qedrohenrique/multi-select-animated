@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
 import { Loader2, Check } from "lucide-react";
 
-export interface StatefullButonProps
+export interface StatefullButtonProps
   extends React.ComponentPropsWithoutRef<typeof Button> {
   children: React.ReactNode;
   loadingDuration?: number;
@@ -13,14 +13,14 @@ export interface StatefullButonProps
   phase?: "idle" | "contracting" | "loading" | "success";
 }
 
-export function StatefullButon({
+export function StatefullButton({
   children,
   loadingDuration = 1500,
   successDuration = 1000,
   onClick,
   phase: controlledPhase,
   ...props
-}: StatefullButonProps) {
+}: StatefullButtonProps) {
   const [internalPhase, setInternalPhase] = useState<
     "idle" | "contracting" | "loading" | "success"
   >("idle");
@@ -146,4 +146,4 @@ export function StatefullButon({
   );
 }
 
-StatefullButon.displayName = "StatefullButon";
+StatefullButton.displayName = "StatefullButton";
