@@ -8,10 +8,10 @@ For example, imagine you want to use the `MultiSelectAnimated` component, you wo
 
 ```bash
 # add the component to the current folder (default)
-npx @qedrohenrique/create-multiselect-animated@latest
+npx @qedrohenrique/create-multi-select-animated@latest
 
 # target a different folder
-npx @qedrohenrique/create-multiselect-animated@latest --path ./apps/web
+npx @qedrohenrique/create-multi-select-animated@latest --path ./apps/web
 ```
 
 You can use it as:
