@@ -13,6 +13,9 @@ export default function Home() {
           <Button variant="link" asChild>
             <Link href="/statefull-button">Statefull Button</Link>
           </Button>
+          <Button variant="link" asChild>
+            <Link href="/expandable-timeline">Expandable Timeline</Link>
+          </Button>
         </div>
       </div>
     </main>
