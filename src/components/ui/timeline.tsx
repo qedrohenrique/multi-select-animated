@@ -14,7 +14,7 @@ type TimelineContextValue = {
   setActiveStep: (step: number) => void;
 };
 
-// TimelineItem Context (expansão/colapso)
+// TimelineItem Context
 type TimelineItemContextValue = {
   isOpen: boolean;
   toggleOpen: () => void;
