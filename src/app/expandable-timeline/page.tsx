@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { CopyIcon, GithubIcon } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { ExpandableTimeline } from "@/components/custom/expandable-timeline";
 import { GitCompare, GitFork, GitMerge, GitPullRequest } from "lucide-react";
-
 import {
   Timeline,
   TimelineContent,
@@ -16,7 +14,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineTitle,
-} from "@/components/ui/timeline";
+} from "@/components/custom/timeline";
 
 const items = [
   {
@@ -100,7 +98,6 @@ export default function ExpandableTimelinePage() {
           <h1 className="text-2xl font-bold">Expandable Timeline</h1>
           <p className="text-sm text-muted-foreground">built with shadcn/ui</p>
         </div>
-        <ExpandableTimeline />
         <TimelineDemo />
       </div>
       <span className="text-sm text-muted-foreground my-4 border border-foreground/10 rounded-md p-2 flex items-center gap-2">
@@ -112,7 +109,7 @@ export default function ExpandableTimelinePage() {
         variant="outline"
         onClick={() =>
           window.open(
-            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/expandable-timeline.tsx",
+            "https://github.com/qedrohenrique/ui/blob/master/src/components/custom/timeline.tsx",
             "_blank"
           )
         }

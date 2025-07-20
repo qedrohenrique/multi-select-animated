@@ -131,7 +131,7 @@ function TimelineDate({
   className,
   ...props
 }: TimelineDateProps) {
-  const Comp = asChild ? Slot.Root : "time";
+  const Comp = (asChild ? Slot : "time") as React.ElementType;
 
   return (
     <Comp
@@ -194,7 +194,7 @@ function TimelineIndicator({
   children,
   ...props
 }: TimelineIndicatorProps) {
-  const Comp = asChild ? Slot.Root : "div";
+  const Comp = (asChild ? Slot : "div") as React.ElementType;
 
   return (
     <Comp
